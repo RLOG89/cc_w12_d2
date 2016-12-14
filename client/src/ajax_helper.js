@@ -1,17 +1,19 @@
-var makeGetRequest = function(url, callback) {
-  var request = new XMLHttpRequest();
-  request.open("GET", url);
-  request.onload = function() {
-    if (this.status !== 200) {
-      console.log("Request failed: ", this.status)
-    } else {
-      callback = JSON.parse(this.responseText);
-    }
-  }
-  request.send();
-};
+var ajaxHelper = {
 
-var makePostRequest = function(url, callback) {
+  makeGetRequest: function (url, callback) {
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.onload = function() {
+      if (this.status !== 200) {
+        console.log("Request failed: ", this.status)
+      } else {
+        callback = JSON.parse(this.responseText);
+      }
+    }
+    request.send();
+  },
+
+  makePostRequest: function(url, callback) {
     var request = new XMLHttpRequest();
     request.open("POST", url);
     request.setRequestHeader("Content-Type", "application/json");
@@ -21,6 +23,7 @@ var makePostRequest = function(url, callback) {
       } 
     }
     request.send(JSON.stringify(callback));
+  }
 };
 
 module.exports = ajaxHelper;

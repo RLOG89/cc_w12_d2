@@ -1,4 +1,5 @@
-var ajaxHelper = require('../ajaxHelper.js');
+var BucketList = require('../bucketlist/bucket_list.js')
+var ajaxHelper = require('../ajax_helper.js');
 
 var CountriesView = function(bucketList) {
   this.bucketList = bucketList;
@@ -27,7 +28,7 @@ BucketList.prototype = {
       country: event.target.value
     }
     this.saveAccount(country);
-  }.bind(this));
-};
+  }.bind(this)
+}
 
-module.exports CountriesView;
+module.exports = CountriesView;

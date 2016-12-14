@@ -8,4 +8,4 @@ BucketList.prototype = {
   }
 };
 
-module.exports BucketList;
+module.exports = BucketList;

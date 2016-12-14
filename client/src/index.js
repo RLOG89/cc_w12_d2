@@ -1,11 +1,11 @@
 var CountriesView = require('./views/countries_view.js');
-var ajaxHelper = require('./ajaxHelper.js')
-var BucketList = require('./bucketList/bucket_list.js');
+var ajaxHelper = require('./ajax_helper.js')
+var BucketList = require('./bucketlist/bucket_list.js');
 
 
 var app = function(){
   var url = 'https://restcountries.eu/rest/v1/all';
-  makeGetRequest(url, function(countries) {
+  ajaxHelper.makeGetRequest(url, function(countries) {
     var countriesView = new CountriesView();
     countriesView.populate(countries);
   });
